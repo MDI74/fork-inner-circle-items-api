@@ -19,6 +19,7 @@ module.exports = {
       {
         // Disables standard presets
         preset: false,
+        // Custom rules
         releaseRules: [
           {
             type: 'feat!',

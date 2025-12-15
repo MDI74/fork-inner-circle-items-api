@@ -71,7 +71,7 @@
         ]
       }
     ],
-    /* Add release notes */
+    // Add release notes
     [
       "@semantic-release/release-notes-generator",
       {

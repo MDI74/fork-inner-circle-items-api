@@ -19,6 +19,11 @@ module.exports = {
       {
         // Disables standard presets
         preset: false,
+        parserOpts: {
+          "noteKeywords": [
+            "BREAKING CHANGE"
+          ]
+        },
         releaseRules: [
           {
             type: 'feat',

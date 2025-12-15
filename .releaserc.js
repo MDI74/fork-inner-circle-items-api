@@ -19,18 +19,17 @@ module.exports = {
       {
         // Disables standard presets
         preset: false,
-        parserOpts: {
-          "noteKeywords": [
-            "BREAKING CHANGE"
-          ]
-        },
         releaseRules: [
+          {
+            type: 'feat!',
+            release: 'major'
+          },
           {
             type: 'feat',
             release: 'minor'
           },
           {
-            type: 'feat!',
+            type: 'fix!',
             release: 'major'
           },
           {
@@ -38,16 +37,12 @@ module.exports = {
             release: 'patch'
           },
           {
-            type: 'fix!',
+            type: 'refactor!',
             release: 'major'
           },
           {
             type: 'refactor',
             release: 'patch'
-          },
-          {
-            type: 'refactor!',
-            release: 'major'
           },
           {
             type: 'format',

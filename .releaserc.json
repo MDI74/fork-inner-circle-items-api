@@ -7,6 +7,13 @@
   ],
   "plugins": [
     [
+      "semantic-release-start-version",
+      {
+        "filePath": "__version",
+        "increment": true
+      }
+    ],
+    [
       "@semantic-release/commit-analyzer",
       {
         "preset": false,

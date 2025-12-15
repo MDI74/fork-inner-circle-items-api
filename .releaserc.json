@@ -7,10 +7,9 @@
   ],
   "plugins": [
     [
-      "semantic-release-start-version",
+      "@semantic-release/exec",
       {
-        "filePath": "__version",
-        "increment": true
+        "verifyReleaseCmd": "echo ${nextRelease.version} > __version"
       }
     ],
     [

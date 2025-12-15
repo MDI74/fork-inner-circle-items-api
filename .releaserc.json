@@ -6,7 +6,6 @@
     }
   ],
   "plugins": [
-    "./read-version-plugin.js",
     [
       "@semantic-release/exec",
       {
@@ -72,17 +71,6 @@
             "release": null
           }
         ]
-      }
-    ],
-    [
-      "@semantic-release/release-notes-generator",
-      {
-        "writerOpts": {
-          "commitsSort": [
-            "scope",
-            "subject"
-          ]
-        }
       }
     ],
     "@semantic-release/github",

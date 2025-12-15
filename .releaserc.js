@@ -91,7 +91,7 @@ module.exports = {
         // Also add this file to commit
         assets: ['__version'],
         // Release commit message
-        message: 'chore(release): ${nextRelease.version} \n\nSee release notes: https://github.com/owner/repo/releases/tag/v${nextRelease.version}'
+        message: 'chore(release): ${nextRelease.version}'
       }
     ]
   ],

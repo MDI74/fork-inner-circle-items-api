@@ -6,6 +6,7 @@
     }
   ],
   "plugins": [
+    "./read-version-plugin.js",
     [
       "@semantic-release/exec",
       {

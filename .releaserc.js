@@ -20,6 +20,8 @@ module.exports = {
         // Disables standard presets
         preset: false,
         parserOpts: {
+          // It is necessary that the types with ! you were right to worry,
+          // without this feat!, refactor! and fix! did not update the major version
           headerPattern: /^(\w+!?): (.+)$/
         },
         // Custom rules

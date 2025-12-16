@@ -10,7 +10,7 @@ module.exports = {
       '@semantic-release/exec',
       {
         /* Need to rewrite version in __version */
-        verifyReleaseCmd: 'echo ${nextRelease.version} > __version'
+        successCmd: 'echo ${nextRelease.version} > __version'
       }
     ],
     [
@@ -18,7 +18,7 @@ module.exports = {
       '@semantic-release/commit-analyzer',
       {
         // Disables standard presets
-        preset: 'conventional-changelog-conventionalcommits',
+        preset: 'conventionalcommits',
         // Custom rules
         releaseRules: [
           {

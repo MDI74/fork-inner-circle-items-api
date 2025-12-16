@@ -18,11 +18,11 @@ module.exports = {
       '@semantic-release/commit-analyzer',
       {
         // Disables standard presets
-        preset: false,
+        preset: 'conventional-changelog-conventionalcommits',
         // Custom rules
         releaseRules: [
           {
-            type: 'featmajor',
+            type: 'feat!',
             release: 'major'
           },
           {

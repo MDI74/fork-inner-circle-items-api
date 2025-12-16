@@ -21,7 +21,7 @@ module.exports = {
         preset: false,
         parserOpts: {
           // Кастомный парсер для обработки '!'
-          headerPattern: /^(\w+)(!)?: (.+)$/
+          headerPattern: /^(\w+!?): (.+)$/
         },
         // Custom rules
         releaseRules: [

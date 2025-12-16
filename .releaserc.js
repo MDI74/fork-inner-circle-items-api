@@ -18,7 +18,7 @@ module.exports = {
       '@semantic-release/commit-analyzer',
       {
         // Disables standard presets
-        preset: 'false',
+        preset: false,
         parserOpts: {
           // Кастомный парсер для обработки '!'
           headerPattern: /^(\w+)(!)?: (.+)$/

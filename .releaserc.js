@@ -22,7 +22,7 @@ module.exports = {
         // Custom rules
         releaseRules: [
           {
-            type: 'feat!',
+            type: 'featmajor',
             release: 'major'
           },
           {

@@ -20,7 +20,6 @@ module.exports = {
         // Disables standard presets
         preset: false,
         parserOpts: {
-          // Кастомный парсер для обработки '!'
           headerPattern: /^(\w+!?): (.+)$/
         },
         // Custom rules

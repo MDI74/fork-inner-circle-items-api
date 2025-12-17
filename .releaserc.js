@@ -23,7 +23,7 @@ module.exports = {
           // without this feat!, refactor! and fix! did not update the major version
           headerPattern: /^(\w+!?): (.+)$/
         },
-        releaseRules: "release-rules.js"
+        releaseRules: "./release-rules.js"
       }
     ],
     // Add release notes

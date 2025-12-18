@@ -33,6 +33,7 @@ jobs:
             @semantic-release/release-notes-generator \
             @semantic-release/github \
             @semantic-release/git \
+            conventional-changelog-conventionalcommits@9.1.0
 
       - name: Configure Git
         run: |

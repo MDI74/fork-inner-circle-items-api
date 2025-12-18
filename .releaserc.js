@@ -17,11 +17,11 @@ module.exports = {
       // Analyzes commits and determines which release version should be released.
       '@semantic-release/commit-analyzer',
       {
-        preset: "angular",
+        preset: "conventionalcommits",
         parserOpts: {
           // It is necessary that the types with ! you were right to worry,
           // without this feat!, refactor! and fix! did not update the major version
-          headerPattern: /^(\w+!?): (.+)$/
+          // headerPattern: /^(\w+!?): (.+)$/
         },
         releaseRules: "./release-rules.js"
       }

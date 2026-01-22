@@ -16,19 +16,27 @@ jobs:
     - name: Check out the repo
       uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v3
       with:
-        dotnet-version: 9.0.x
-
-    - name: Install EF Core tools
-      run: dotnet tool install --global dotnet-ef
-    
-    - name: Restore application dependencies
-      run: dotnet restore 
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build application
-      run: dotnet build
+      uses: devcontainers/ci@v0.3
+      with:
+        imageName: ghcr.io/${{ env.DEV_CONTAINER_IMAGE }}
+        cacheFrom: ghcr.io/${{ env.DEV_CONTAINER_IMAGE }}
+        runCmd: |
+          dotnet build
+
+          dotnet ef migrations add CheckPendingMigration \
+              --startup-project ./Api/Api.csproj \
+              --project ./Application/Application.csproj \
+              --context AppDbContext \
+              --verbose
+        # in the first step that runs inside Dev Container we push the image we built to re-use it in the next steps
+        # we newer push in the next steps, only use the cache if available
+        push: never
     
-    - name: Create migrations
-      run: dotnet ef migrations add CheckPendingMigration --startup-project ./Api/Api.csproj --project ./Application/Application.csproj --context AppDbContext --no-build --verbose

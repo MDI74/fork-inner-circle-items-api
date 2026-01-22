@@ -1,0 +1,31 @@
+# main part of the workflow was taken from https://github.com/gman-au/not-again/blob/master/.github/workflows/siren-gen.yml
+name: No pending migrations
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    # need to execute only when migrations changed
+    # paths:
+    #   - '**/Entities/**'
+    #   - '**/AppDbContext/**'
+
+jobs:
+  check-pending-migrations:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+    
+    - name: Restore application dependencies
+      run: dotnet restore 
+
+    - name: Build application
+      run: dotnet build
+    
+    - name: Create migrations
+      run: dotnet ef migrations add CheckPendingMigration --startup-project ./Api/Api.csproj --project ./Application/Application.csproj --context AppDbContext --verbose

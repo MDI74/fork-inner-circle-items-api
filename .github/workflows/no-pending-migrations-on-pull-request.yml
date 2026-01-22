@@ -31,4 +31,4 @@ jobs:
       run: dotnet build
     
     - name: Create migrations
-      run: dotnet ef migrations add CheckPendingMigration --startup-project ./Api/Api.csproj --project ./Application/Application.csproj --context AppDbContext --verbose
+      run: dotnet ef migrations add CheckPendingMigration --startup-project ./Api/Api.csproj --project ./Application/Application.csproj --context AppDbContext --no-build --verbose

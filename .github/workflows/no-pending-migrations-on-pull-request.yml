@@ -23,7 +23,13 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build application
+    # this is needed to address this issue according to the comment https://github.com/devcontainers/ci/issues/271#issuecomment-2301764487
+    # otherwise our TourmalineCore org name cannot be used in docker image names, only tourmalinecore
+    - name: Add Lowercase Organization and Repo Name REPO_NAME Env Var
+      run: |
+        echo "DEV_CONTAINER_IMAGE=${GITHUB_REPOSITORY,,}-devcontainer" >>${GITHUB_ENV}
+
+    - name: Build application and create migration
       uses: devcontainers/ci@v0.3
       with:
         imageName: ghcr.io/${{ env.DEV_CONTAINER_IMAGE }}
